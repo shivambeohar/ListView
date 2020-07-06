@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_person_name"
-            style="@style/textview"
-            android:text="Shivam Beohar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_person_name"
+        style="@style/textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Shivam Beohar" />
 
-        <TextView
-            android:id="@+id/tv_person_designation"
-            style="@style/textview"
-            android:text="Software Engineer"
-            app:layout_constraintBaseline_toBaselineOf="@+id/tv_person_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_person_designation"
+        style="@style/textview"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_person_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Software Engineer" />
 
-        <TextView
-            android:id="@+id/tv_person_company"
-            style="@style/textview"
-            android:text="Globallogic"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_person_designation" />
+    <TextView
+        android:id="@+id/tv_person_company"
+        style="@style/textview"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_person_designation"
+        tools:text="Globallogic" />
 </androidx.constraintlayout.widget.ConstraintLayout>
