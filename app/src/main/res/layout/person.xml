@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/small_margin"
+    app:cardCornerRadius="@dimen/card_corner_radius">
 
-    <TextView
-        android:id="@+id/tv_person_name"
-        style="@style/textview"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Shivam Beohar" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLightDark">
 
-    <TextView
-        android:id="@+id/tv_person_designation"
-        style="@style/textview"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_person_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Software Engineer" />
+        <TextView
+            android:id="@+id/tv_person_name"
+            style="@style/textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Shivam Beohar" />
 
-    <TextView
-        android:id="@+id/tv_person_company"
-        style="@style/textview"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_person_designation"
-        tools:text="Globallogic" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_person_designation"
+            style="@style/textview"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_person_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Software Engineer" />
+
+        <TextView
+            android:id="@+id/tv_person_company"
+            style="@style/textview"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_person_designation"
+            tools:text="Globallogic" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
