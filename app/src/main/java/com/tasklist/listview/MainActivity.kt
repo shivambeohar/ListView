@@ -1,23 +1,20 @@
 package com.tasklist.listview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.reflect.typeOf
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var mRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         //Reference to the RecyclerView Object in order to set the recyclerView adapter.
-        recyclerView = findViewById(R.id.recycler_view)
+        mRecyclerView = findViewById(R.id.recycler_view)
 
         //Data of the employees
         val employees: List<Employee> = listOf(Employee(name="Ravi",designation = "Software Engineer",companyName = "Globallogic"),
@@ -37,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             Employee(name = "Vikram",designation = "Full Stack Developer",companyName = "Microsoft"),
             Employee(name = "Ayush",designation = "Network Engineer",companyName = "Google"))
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = EmployeeRecyclerViewAdapter(context = this,employees = employees)
+        mRecyclerView.layoutManager = LinearLayoutManager(this)
+        mRecyclerView.adapter = EmployeeRecyclerViewAdapter(employees = employees)
     }
 }

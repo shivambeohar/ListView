@@ -1,6 +1,5 @@
 package com.tasklist.listview
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,15 +7,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EmployeeRecyclerViewAdapter(var context: Context, var employees: List<Employee>) :
+const val TAG: String = "Recyclerview"
+
+class EmployeeRecyclerViewAdapter(val employees: List<Employee>) :
     RecyclerView.Adapter<EmployeeRecyclerViewAdapter.EmployeeViewHolder>() {
 
-    private val TAG: String = "RecyclerViewAdapter"
     private lateinit var employee: Employee
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.person, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.person, parent, false)
         Log.i(TAG, "On createViewHolder called Layout Inflated")
         return EmployeeViewHolder(view)
     }
@@ -31,16 +30,13 @@ class EmployeeRecyclerViewAdapter(var context: Context, var employees: List<Empl
     }
 
     override fun getItemCount(): Int {
-        Log.i(TAG, "getItemCount called")
+        Log.i(TAG, "getItemCount called ${employees.size}")
         return employees.size
     }
 
-
     class EmployeeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val TAG: String = "RecyclerViewAdapter"
-
-        var personName: TextView = itemView.findViewById(R.id.tv_person_name)
-        var personDesignation: TextView = itemView.findViewById(R.id.tv_person_designation)
-        var personCompany: TextView = itemView.findViewById(R.id.tv_person_company)
+        val personName: TextView = itemView.findViewById(R.id.tv_person_name)
+        val personDesignation: TextView = itemView.findViewById(R.id.tv_person_designation)
+        val personCompany: TextView = itemView.findViewById(R.id.tv_person_company)
     }
 }
