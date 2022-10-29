@@ -4,17 +4,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.tasklist.listview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var mRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //Reference to the RecyclerView Object in order to set the recyclerView adapter.
-        mRecyclerView = findViewById(R.id.recycler_view)
+        mRecyclerView = binding.recyclerView
 
         //Data of the employees
         val employees: List<Employee> = listOf(Employee(name="Ravi",designation = "Software Engineer",companyName = "Globallogic"),
