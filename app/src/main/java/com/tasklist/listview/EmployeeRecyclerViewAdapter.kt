@@ -9,7 +9,10 @@ import com.tasklist.listview.databinding.PersonBinding
 
 const val TAG: String = "Recyclerview"
 
-class EmployeeRecyclerViewAdapter(val employees: List<Employee>) :
+class EmployeeRecyclerViewAdapter(
+    val employees: List<Employee>,
+    val clickListener: (String, Int) -> (Unit)
+) :
     RecyclerView.Adapter<EmployeeRecyclerViewAdapter.EmployeeViewHolder>() {
 
     private lateinit var employee: Employee
@@ -17,9 +20,12 @@ class EmployeeRecyclerViewAdapter(val employees: List<Employee>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
         val personViewBinding: PersonBinding = PersonBinding.inflate(
             LayoutInflater.from(parent.context),
-            parent, false)
+            parent, false
+        )
         Log.i(TAG, "On createViewHolder called Layout Inflated")
-        return EmployeeViewHolder(personViewBinding)
+        return EmployeeViewHolder(personViewBinding) {
+            clickListener(employees[it].name, it)
+        }
     }
 
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
@@ -36,10 +42,19 @@ class EmployeeRecyclerViewAdapter(val employees: List<Employee>) :
         return employees.size
     }
 
-    class EmployeeViewHolder(personViewBinding: PersonBinding) :
+    class EmployeeViewHolder(
+        personViewBinding: PersonBinding,
+        clickAtPosition: (Int) -> (Unit)
+    ) :
         RecyclerView.ViewHolder(personViewBinding.root) {
         val personName: TextView = personViewBinding.tvPersonName
         val personDesignation: TextView = personViewBinding.tvPersonDesignation
         val personCompany: TextView = personViewBinding.tvPersonCompany
+
+        init {
+            personViewBinding.root.setOnClickListener {
+                clickAtPosition(adapterPosition)
+            }
+        }
     }
 }

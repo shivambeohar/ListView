@@ -1,6 +1,7 @@
 package com.tasklist.listview
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity() {
             Employee(name = "Ayush",designation = "Network Engineer",companyName = "Google"))
 
         mRecyclerView.layoutManager = LinearLayoutManager(this)
-        mRecyclerView.adapter = EmployeeRecyclerViewAdapter(employees = employees)
+        mRecyclerView.adapter =
+            EmployeeRecyclerViewAdapter(employees = employees) { name, position ->
+                Toast.makeText(this, "$name, $position", Toast.LENGTH_SHORT).show()
+            }
     }
 }
