@@ -19,12 +19,10 @@ class EmployeeRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
         val personViewBinding: PersonBinding = PersonBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent, false
-        )
+            LayoutInflater.from(parent.context), parent, false)
         Log.i(TAG, "On createViewHolder called Layout Inflated")
-        return EmployeeViewHolder(personViewBinding) {
-            clickListener(employees[it].name, it)
+        return EmployeeViewHolder(personViewBinding) { adapterPosition ->
+            clickListener(employees[adapterPosition].name, adapterPosition)
         }
     }
 
@@ -42,10 +40,7 @@ class EmployeeRecyclerViewAdapter(
         return employees.size
     }
 
-    class EmployeeViewHolder(
-        personViewBinding: PersonBinding,
-        clickAtPosition: (Int) -> (Unit)
-    ) :
+    class EmployeeViewHolder(personViewBinding: PersonBinding, clickAtPosition: (Int) -> (Unit)) :
         RecyclerView.ViewHolder(personViewBinding.root) {
         val personName: TextView = personViewBinding.tvPersonName
         val personDesignation: TextView = personViewBinding.tvPersonDesignation
