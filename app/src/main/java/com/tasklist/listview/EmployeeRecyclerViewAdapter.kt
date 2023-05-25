@@ -20,7 +20,7 @@ class EmployeeRecyclerViewAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
         val personViewBinding: PersonBinding = PersonBinding.inflate(
             LayoutInflater.from(parent.context), parent, false)
-        Log.i(TAG, "On createViewHolder called Layout Inflated")
+        Log.i(TAG, "OnCreateViewHolder called Layout Inflated")
         return EmployeeViewHolder(personViewBinding) { adapterPosition ->
             clickListener(employees[adapterPosition].name, adapterPosition)
         }
